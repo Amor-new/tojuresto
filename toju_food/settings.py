@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-+ip(#0krlz)c=3s7-$1%_h()48flldk088!h-(ssme=@3z2+**
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['tojuresto-production.up.railway.app', 'https://tojuresto-production.up.railway.app']
+ALLOWED_HOSTS = [ 'tojuresto-production.up.railway.app', 'https://tojuresto-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['tojuresto-production.up.railway.app', 'https://tojuresto-production.up.railway.app']
 
 
