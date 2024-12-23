@@ -23,8 +23,8 @@ SECRET_KEY = 'django-insecure-+ip(#0krlz)c=3s7-$1%_h()48flldk088!h-(ssme=@3z2+**
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['c00d-102-88-83-200.ngrok-free.app', '127.0.0.1', '*']
-CSRF_TRUSTED_ORIGINS = ['https://djangotest.com', 'https://c00d-102-88-83-200.ngrok-free.app']
+ALLOWED_HOSTS = ['tojuresto-production.up.railway.app', 'https://tojuresto-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['tojuresto-production.up.railway.app', 'https://tojuresto-production.up.railway.app']
 
 
 INSTALLED_APPS = [
