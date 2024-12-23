@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  
+
+
+
+
+  {% block extra_css %}{% endblock %}
+   
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- <title>Index - Restaurantly Bootstrap Template</title> -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/toju1.png' %}" rel="icon">
+  <link href="{% static 'assets/img/toju1.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:contact@example.com">tojucatering@gmail.com</a>
+          </i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+234811072174 </span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+    
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+  
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <img src="{% static 'assets/img/toju1.png' %}" alt="">
+          <h1 class="sitename">Tojufoods</h1>
+        </a>
+  
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#chefs">Chefs</a></li>
+            <li><a href="#book-a-table">Make a Reservation</a></li>
+            <li><a href="#contact">Contact</a></li
+              <li>
+                <a href="{% url 'order' %}" class="order-now-btn" style="display: inline-block; background-color: gold; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 30px; text-align: center; transition: background-color 0.3s ease;">
+                  <span>ORDER NOW</span>
+                </a>
+              </li>
+          </ul>
+          <!-- Mobile Nav Toggle -->
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static 'assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
+            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>Tojufoods</span></h2>
+            <p data-aos="fade-up" data-aos-delay="200">Straight from the heart...</p>
+            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+              <a href="#menu" class="cta-btn">Our Menu</a>
+              <a href="#book-a-table" class="cta-btn">Select a Menu</a>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid about-img" alt="">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 content">
+            <h3>A Taste of Africa</h3>
+            <p class="fst-italic">
+              Immerse yourself in the vibrant tapestry of African cuisine, where every dish is a reflection of the continent's rich history and diverse cultures
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Incorporating a mix of influences from indigenous practices and historical exchanges</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>African cuisine showcases the creativity and resourcefulness of its people</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Embark on a culinary adventure and discover the unique offerings of African dishes, where every bite is an invitation to experience the continent’s rich heritage</span></li>
+            </ul>
+            <p>
+              From the bustling markets of West Africa to the aromatic kitchens of East Africa, the flavors are as varied as the landscapes that stretch across the continent.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>WHY US</h2>
+        <p>Why Choose Our Restaurant</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <span>01</span>
+              <h4><a href="" class="stretched-link">Authentic Culinary Experience</a></h4>
+              <p>we pride ourselves on delivering an authentic culinary experience that celebrates the rich tapestry of flavors from around the world</p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-item">
+              <span>02</span>
+              <h4><a href="" class="stretched-link">Diverse Menu Options</a></h4>
+              <p>Whether you’re a meat lover, a vegetarian, or someone with specific dietary restrictions, we have something special for you.</p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-item">
+              <span>03</span>
+              <h4><a href="" class="stretched-link">Unmatched Quality and Freshness</a></h4>
+              <p>Quality and freshness are at the core of our culinary philosophy. We believe that the best dishes start with the best ingredients</p>
+            </div>
+          </div><!-- Card Item -->
+
+        </div>
+
+      </div>
+
+
+    </section><!-- /Why Us Section -->
+
+   <!-- Menu Section -->
+<section id="menu" class="menu section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Menu</h2>
+    <p>Check Our Tasty Menu</p>
+  </div><!-- End Section Title -->
+
+  <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul class="menu-filters isotope-filters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-starters">Appetizers</li>
+          <li data-filter=".filter-salads">Main Courses</li>
+          <li data-filter=".filter-grilled">Grilled and Barbecued</li>
+          <li data-filter=".filter-beverages">Beverages</li>
+          <li data-filter=".filter-desserts">Desserts</li>
+        </ul>
+      </div>
+    </div><!-- Menu Filters -->
+
+    <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="col-lg-6 menu-item isotope-item filter-starters">
+        <img src="{% static 'assets/img/menu/lobster-bisque.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Deviled Eggs</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          HardBoiled Egg, Mayonnaise, Avocado, Lemon, Salt
+        </div>
+      </div><!-- Menu Item -->
+
+      
+       
+      <div class="col-lg-6 menu-item isotope-item filter-salads">
+        <img src="{% static 'assets/img/menu/caesar.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Pasta Selections</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Spaghetti Bolognese, Creamy Alfredo Pasta, Jollof Pasta, Vegetable Stir Fry
+        </div>
+        </div>
+      
+
+      <div class="col-lg-6 menu-item isotope-item filter-starters">
+        <img src="{% static 'assets/img/menu/cake.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Bread and Flavored Butter</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          A delicious meal served on a toasted bread with Butter and flavor
+        </div>
+      </div>
+
+      <div class="col-lg-6 menu-item isotope-item filter-salads">
+        <img src="{% static 'assets/img/menu/caesar.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Rice Selections</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Smokey Jollof, Vegetable Fried Rice, Herbs Rice, Village Rice, Oriental Fried Rice, Asun Rice
+        </div>
+      </div>
+
+
+      <div class="col-lg-6 menu-item isotope-item filter-salads">
+        <img src="{% static 'assets/img/menu/caesar.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Salad Selections</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Caesar Salad, Coleslaw, Spinach-salad, Thai Salad, Chicken Salad
+        </div>
+      </div><!-- Menu Item
+
+
+
+      
+
+      <div class="col-lg-6 menu-item isotope-item filter-salads">
+        <img src="{% static 'assets/img/menu/greek-salad.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="#">Porridge Selections</a><span>$9.95</span>
+        </div>
+        <div class="menu-ingredients">
+          Agonyin Beans, Yam and Potato Porridge, Plantain Mash, Flavored Palmoil Beans
+        </div>
+      </div>   <! Menu Item -->
+
+
+
+      <div class="col-lg-6 menu-item isotope-item filter-salads">
+        <img src="{% static 'assets/img/menu/spinach-salad.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Soup Selections</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Chicken Soup, Afang Soup, Buka Mix, Efo Riro, Egusi Soup, White Soup, Seafood Okra
+          Ayamase Sauce, Carrot Sauce, Shredded Beef Sauce, 
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-specialty">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Lobster Roll</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-grilled">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Wings on Fire</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Chicken wings, barbecue sauce, sesame seed
+        </div>
+       </div><!-- Menu Item -->
+
+
+      <div class="col-lg-6 menu-item isotope-item filter-beverages">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Hot Chocolate</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-desserts">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Red Velvet</a><span></span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-grilled">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Grilled Fish</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Fish, Hot Peppers, Herbs.
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-beverages">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Creamy Coffee</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-desserts">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Chocolate Brownies</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+      <div class="col-lg-6 menu-item isotope-item filter-grilled">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Grilled Turkey</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Turkey laps, Barbecue sauce.
+        </div>
+      </div><!-- Menu Item -->
+
+
+      <div class="col-lg-6 menu-item isotope-item filter-beverages">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Fruit Juice</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+      <div class="col-lg-6 menu-item isotope-item filter-desserts">
+        <img src="{% static 'assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'order' %}">Banana Bread</a><span>TO ORDER</span>
+        </div>
+        <div class="menu-ingredients">
+          Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+        </div>
+      </div><!-- Menu Item -->
+
+    </div><!-- Menu Container -->
+
+  </div>
+
+</section><!-- /Menu Section -->
+
+<!-- Specials Section -->
+<section id="specials" class="specials section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Specials</h2>
+    <p>Check Our Specials</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#specials-tab-1">Egusi Soup with Pounded Yam</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-2">Grilled Suya Skewers with Pepper Sauce</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-3">Pepper Soup with Catfish</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-4"> Ofada Rice with Ayamase</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-5"> Jollof Rice with Grilled Chicken</a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="tab-content">
+          <div class="tab-pane active show" id="specials-tab-1">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Egusi Soup with Pounded Yam</h3>
+                <p class="fst-italic">A rich and savory West African stew made from ground melon seeds, spinach, and a variety of meats or fish. </p>
+                <p>Served alongside smooth pounded yam, this comforting dish is a staple in Nigerian cuisine.</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'assets/img/pyam.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="specials-tab-2">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Grilled Suya Skewers with Pepper Sauce</h3>
+                <p class="fst-italic">Juicy, thinly sliced beef or chicken grilled over an open flame and coated with a signature suya spice mix made from peanuts, paprika, and ginger.</p>
+                <p>This popular Nigerian street food is served with spicy pepper sauce and fresh onions, offering a smoky, flavorful kick that’s hard to resist.</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'assets/img/suya.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="specials-tab-3">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Pepper Soup with Catfish</h3>
+                <p class="fst-italic">A fiery, aromatic broth made with a blend of traditional Nigerian spices and fresh catfish. This hearty soup is perfect for cold nights or when you're craving something spicy and comforting.</p>
+                <p>It’s a dish that warms you from the inside out and is a favorite in many Nigerian homes.
+
+                </p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'assets/img/catfish.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="specials-tab-4">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Ofada Rice with Ayamase</h3>
+                <p class="fst-italic">Ofada rice, a locally grown Nigerian variety, paired with Ayamase, a rich, spicy green pepper stew cooked with assorted meats, boiled eggs, and palm oil.</p>
+                <p>This dish is beloved for its bold, savory flavors, making it a true Nigerian delicacy.</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'assets/img/ofada.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="specials-tab-5">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Jollof Rice with Grilled Chicken</h3>
+                <p class="fst-italic">A West African classic, Nigerian Jollof rice is simmered in a rich tomato, pepper, and spice blend, giving it its vibrant orange color and irresistible aroma. </p>
+                <p>Served with perfectly grilled, succulent chicken, this dish is a crowd favorite, known for bringing out the best of Nigerian hospitality.</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'assets/img/jollof.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Specials Content -->
+
+  </div>
+</section><!-- End Specials Section -->
+
+
+    <!-- Events Section -->
+  <!-- Events Section -->
+<section id="events" class="events section">
+
+  <img class="slider-bg" src="/static/assets/img/events-bg.jpg" alt="" data-aos="fade-in">
+
+  <div class="container">
+
+    <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          }
+        }
+      </script>
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="row gy-4 event-item">
+            <div class="col-lg-6">
+              <img src="/static/assets/img/events-slider/events-slider-1.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Birthday Parties</h3>
+              <div class="price">
+                <p><span>$189</span></p>
+              </div>
+              <p class="fst-italic">
+                Make your birthday unforgettable with a celebration tailored to you. 
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-circle"></i> <span> Whether it’s an intimate gathering or a lively bash, every detail is crafted to reflect your style and personality.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>Enjoy a selection of delectable dishes, exceptional service, and an ambiance that will make your special day shine. </span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>Let the celebration be one that your guests will fondly remember long after the candles are blown out.</span></li>
+              </ul>
+              <p>
+                we offer complimentary birthday desserts and special surprises to make your celebration even more memorable.
+              </p>
+            </div>
+          </div>
+        </div><!-- End Slider item -->
+
+        <div class="swiper-slide">
+          <div class="row gy-4 event-item">
+            <div class="col-lg-6">
+              <img src="/static/assets/img/wedding2.jfif" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Wedding Parties</h3>
+              <div class="price">
+                <p><span>$290</span></p>
+              </div>
+              <p class="fst-italic">
+                Your wedding deserves nothing less than perfection, and every moment of the celebration will be thoughtfully
+                 designed to match your vision.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-circle"></i> <span>With a beautiful setting and a customized menu that reflects your taste. </span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>This special day will be filled with elegance and charm.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>Whether you’re planning an intimate reception or a grand affair, the experience will be unforgettable</span></li>
+              </ul>
+              <p>
+                from the exquisitely prepared dishes to the impeccable service. It's all about making your big day as magical as you’ve always imagined.
+
+
+              
+              </p>
+            </div>
+          </div>
+        </div><!-- End Slider item -->
+
+        <div class="swiper-slide">
+          <div class="row gy-4 event-item">
+            <div class="col-lg-6">
+              <img src="/static/assets/img/events-slider/events-slider-3.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Custom Parties/Fine Dining</h3>
+              <div class="price">
+                <p><span>$99</span></p>
+              </div>
+              <p class="fst-italic">
+                Turn any occasion into a memorable event with a party that’s uniquely yours. 
+                Whether it’s a themed celebration, a corporate gathering, or a casual get-together, the possibilities are endless.
+                
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-circle"></i> <span>An extensive menu to match your theme and preferences.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>With attention to detail in every aspect of the planning. </span></li>
+                <li><i class="bi bi-check2-circle"></i> <span>you can simply enjoy the celebration while everything runs smoothly behind the scenes.</span></li>
+              </ul>
+              <p>
+                Delicious cuisine and a vibrant atmosphere will set the perfect tone for your custom event.
+              </p>
+            </div>
+          </div>
+        </div><!-- End Slider item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+</section><!-- /Events Section -->
+
+<!-- Book A Table Section -->
+<section id="book-a-table" class="book-a-table section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>RESERVATION</h2>
+    <p>Book a Table</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+      </div>
+
+      <div class="text-center mt-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+        <button type="submit">Book a Table</button>
+      </div>
+    </form><!-- End Reservation Form -->
+
+  </div>
+
+</section>
+<!-- /Book A Table Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>What they're saying about us</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item" >
+                <p>
+                  <i class=" bi bi-quote quote-icon-left"></i>
+                    <span>The food was absolutely incredible! The flavors were so fresh, and each dish was a masterpiece. I’ll definitely be coming back for more!</span>
+                    <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                <h3>Damola Olajoke</h3>
+                <h4>Customer &amp; </h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>I’ve worked with many chefs, but this one truly stands out. The attention to detail, presentation, and taste made our event unforgettable. Highly recommended!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                <h3>Toju Events</h3>
+                <h4>Event Planner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>The chef’s culinary skills are second to none. Every dish served has been a hit with our customers. A true professional who delivers exceptional results.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                <h3>Chef Lola</h3>
+                <h4>Restaurant Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Our wedding reception was made even more special with the chef’s amazing dishes. Every guest was impressed by the quality and creativity. Thank you for making our day perfect!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                <h3>Gbemi Temitayo</h3>
+                <h4>Bride</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>A delightful surprise! Every dish was full of flavor, and the creativity in plating was outstanding. This chef is setting a new standard in the culinary world.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                <h3>Opeyemi Famakin</h3>
+                <h4>Food crtic</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+    
+      </div>
+    
+    </section><!-- /Testimonials Section -->
+    
+    
+
+    
+
+        </div>
+
+      </div>
+
+    </section><!-- /Chefs Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Contact Us</p>
+      </div><!-- End Section Title -->
+
+      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 400px;"  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3902.391026097738!2d3.386636719955208!3d6.555795602697556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1733407080814!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Location</h3>
+                <p>7 Popoola Banjoko ST, Lagos Mainland, Lagos 105102</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+2348110072174</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>tojucatering@gmail.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="{% static 'index.html' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Tojufoods</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>7 Popoola Banjoko ST,</p>
+            <p>Lagos Mainland, Lagos 105102</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>>+2348110072174</span></p>
+            <p><strong>Email:</strong> <span>tojucatering@gmail.com/span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Catering</a></li>
+            <li><a href="#">Instant Orders</a></li>
+            <li><a href="#">Fine Dining</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Web Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="{% static 'forms/newsletter.php' %}" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+
+</html>

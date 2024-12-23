@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% block extra_css %}{% endblock %}
+
+    <!-- Custom Styles -->
+    <style>
+        header {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           z-index: 1000;
+           background-color: black;
+ 
+        }
+        /* Background Image with Overlay */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url("{% static 'assets/img/meal1.png' %}") no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        /* Inline Hover Styles */
+        .topbar a:hover, .branding a:hover, .navmenu a:hover, .cart-icon:hover {
+            color: gold !important;
+        }
+
+        /* Cart icon adjustment */
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon span {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #d9534f;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        /* Dropdown for mobile view */
+        .mobile-nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .navmenu {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: inline;
+                cursor: pointer;
+            }
+
+            .mobile-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                z-index: 998;
+            }
+
+            .mobile-nav ul {
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+                text-align: center;
+            }
+
+            .mobile-nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('.mobile-nav-toggle').click(function () {
+                $('.mobile-nav').slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body class="{% block body_class %}index-page{% endblock %}" style="color: white;">
+
+<!-- Background Image with Dark Overlay -->
+<div class="background-overlay"></div>
+
+<!-- Transparent Header -->
+<header id="header" class="header fixed-top" style="background-color: rgba(0, 0, 0, 0.8); width: 100%; z-index: 997;">
+    <!-- <div class="topbar d-flex align-items-center" style="padding: 5px 0; color: white;">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center" style="color: white;">
+                <i class="bi bi-envelope d-flex align-items-center" style="color: white;">
+                    <a href="mailto:contact@example.com" style="color: white; text-decoration: none;">tojucatering@gmail.com</a>
+                </i>
+                <i class="bi bi-phone d-flex align-items-center ms-4" style="color: white; margin-left: 20px;">
+                    <span>+234810072174</span>
+                </i>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="branding d-flex align-items-center" style="background-color: transparent;">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+            <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0" style="color: white; text-decoration: none;">
+                <img src="{% static 'assets/img/toju1.png' %}" alt="" style="height: 40px; margin-right: 10px;">
+                <h1 class="sitename" style="color: white; margin: 0;">Tojufoods</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 15px;">
+                    <li><a href="{% url 'index' %}#hero" class="active" style="color: white; text-decoration: none;">Home</a></li>
+                    <li><a href="{% url 'index' %}#about" style="color: white; text-decoration: none;">About</a></li>
+                    <li><a href="{% url 'index' %}#menu" style="color: white; text-decoration: none;">Menu</a></li>
+                    <li><a href="{% url 'index' %}#specials" style="color: white; text-decoration: none;">Specials</a></li>
+                    <li><a href="{% url 'index' %}#events" style="color: white; text-decoration: none;">Events</a></li>
+                    <li><a href="{% url 'index' %}#chefs" style="color: white; text-decoration: none;">Chefs</a></li>
+                    <li><a href="{% url 'index' %}#book-a-table" class="order-now-btn" style="color: white; text-decoration: none;"><span>Make a Reservation</span></a></li>
+                    <li><a href="{% url 'index' %}#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="{% url 'cart_summary' %}" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart_quantity">{{ cart|length }}</span>
+            </a>
+
+            <i class="mobile-nav-toggle bi bi-list"></i>
+        </div>
+    </div>
+</header>
+
+<!-- Gold Separator Line -->
+<hr style="border: none; border-top: 2px solid gold; margin: 0;">
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert"
+            style="position: relative; z-index: 9999; margin-top: 100px; font-weight: bold; color: #856404; background-color: rgba(255, 255, 224, 0.9); border-color: #ffeeba; border-radius: 5px; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 90%; max-width: 500px; margin-left: auto; margin-right: auto; text-align: center;">
+            
+            {{ message }}
+
+            <!-- Close button with responsive styling for mobile -->
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                style="position: absolute; top: 50%; transform: translateY(-50%); right: 10px; font-size: 1.5em; background: none; border: none; outline: none; cursor: pointer;">
+                <span aria-hidden="true">&times;</span> <!-- Larger close icon for touch -->
+            </button>
+            
+    {% endfor %}
+    {% endif %}
+    
+        </div>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

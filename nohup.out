@@ -1,0 +1,72 @@
+ 
+ -------------- celery@Mjay v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35 2024-12-10 11:16:16
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         toju_food:0x7f8f2c43acb0
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 4 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . payment.tasks.send_confirmation_email_task
+  . toju_food.celery.debug_task
+
+[2024-12-10 11:16:16,474: WARNING/MainProcess] /home/amor/.local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-10 11:16:16,488: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2024-12-10 11:16:16,489: WARNING/MainProcess] /home/amor/.local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-10 11:16:16,493: INFO/MainProcess] mingle: searching for neighbors
+[2024-12-10 11:16:17,506: INFO/MainProcess] mingle: all alone
+[2024-12-10 11:16:17,526: INFO/MainProcess] celery@Mjay ready.
+ 
+ -------------- celery@Mjay v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35 2024-12-10 11:32:14
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         toju_food:0x7f86bd1eeb60
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 4 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . payment.tasks.send_confirmation_email_task
+  . toju_food.celery.debug_task
+
+[2024-12-10 11:32:15,132: WARNING/MainProcess] /home/amor/.local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-10 11:32:15,169: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2024-12-10 11:32:15,172: WARNING/MainProcess] /home/amor/.local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-10 11:32:15,178: INFO/MainProcess] mingle: searching for neighbors
+[2024-12-10 11:32:16,199: INFO/MainProcess] mingle: all alone
+[2024-12-10 11:32:16,249: INFO/MainProcess] celery@Mjay ready.

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Prevent content from going under the header -->
+<div class="container" style="margin-top: 80px;"> 
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Order Summary Card -->
+            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-header text-white" style="background-color: #4caf50; font-weight: bold;">
+                    Order Summary
+                </div>
+                <div class="card-body" style="font-size: 16px; line-height: 1.6;">
+                    {% for product in cart_products %}
+                    <p>
+                        <span style="font-weight: bold; color: #333;">{{ product.name }}</span>: 
+                        <span style="color: #ff5722; font-weight: bold;">
+                            {% if product.is_sale %}
+                                #{{ product.sale_price }}
+                            {% else %}
+                                #{{ product.price }}
+                            {% endif %}
+                        </span>
+                    </p>
+                    <small style="color: #777;">Quantity: 
+                        {% for key, value in quantities.items %}
+                            {% if key == product.id|slugify %}
+                                {{ value }}
+                            {% endif %}
+                        {% endfor %}
+                    </small>
+                    <hr style="border-top: 1px solid #ddd;" />
+                    {% endfor %}
+                    <p style="font-size: 18px; font-weight: bold; color: #333;">
+                        Total: <span style="color: #4caf50;">#{{ totals }}</span>
+                    </p>
+                    <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary" style="margin-top: 10px;">
+                        Update Items
+                    </a>
+                </div>
+            </div>
+            <br />
+
+            <!-- Shipping Info Card -->
+            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                <div class="card-header text-white" style="background-color: #2196f3; font-weight: bold;">
+                    Shipping Info
+                </div>
+                <div class="card-body" style="font-size: 16px; line-height: 1.6;">
+                    <form method="POST" action="{% url 'billing_info' %}">
+                        {% csrf_token %}
+                        {{ shipping_form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">
+                            Continue to Billing
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+{% endblock %}

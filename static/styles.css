@@ -1,0 +1,159 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background: #ff6f61;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 15px; /* Space between logo and title */
+}
+
+.logo {
+    max-width: 150px; /* Adjust the width as needed */
+    height: auto; /* Keep aspect ratio */
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero section styles */
+.hero {
+    background: url('your_hero_image.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    background: white;
+    color: #ff6f61;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Gallery section styles */
+.gallery {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 30%;
+    margin: 15px;
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery-item h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.gallery-item p {
+    padding: 0 10px;
+}
+
+/* About section styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 15px;
+}
+
+/* Recipes section styles */
+.recipes {
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-item {
+    margin: 15px 0;
+}
+
+/* Contact section styles */
+.contact {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer styles */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

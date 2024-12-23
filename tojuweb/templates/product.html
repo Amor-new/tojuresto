@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+  
+  /* Container padding */
+  .container {
+      padding: 0 15px;
+      display: flex;
+      justify-content: center;
+     
+      
+      
+  }
+
+  /* Overall Card Styling */
+  .product-card {
+      width: 90%;
+      max-width: 600px;  /* Increased size */
+      border-radius: 15px;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+      background: url('{{ product.image.url }}') center center no-repeat;
+      background-size: cover;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+      margin-top: 100px;
+  }
+
+  /* Hover Effect on Product Card */
+  .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Darken background for readability */
+  .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+  }
+
+  /* Product Details Section */
+  .product-details {
+      position: relative;
+      z-index: 2;
+      padding: 15px;
+  }
+
+  /* Product Name Styling */
+  .card-title {
+      font-size: 24px;  /* Increased size */
+      font-weight: 700;
+      color: #f39c12;  /* Golden yellow for name */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Description Styling */
+  .card-text {
+      font-size: 14px;
+      color: #dcdcdc;
+      margin-bottom: 15px;
+  }
+
+  /* Sale Badge */
+  .sale-badge {
+      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffcd00;
+  }
+
+  /* Sale Price Styling */
+  .sale-price {
+      color: #ff4d4d;
+      font-size: 24px;
+      font-weight: 700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Regular Price Styling */
+  .price {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0eeb0e;  /* Dark blue-gray */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Quantity Selection */
+  .form-select {
+      width: 100%;
+  }
+
+  .btn {
+      width: 48%;
+      margin-top: 15px;
+      font-size: 16px;
+  }
+
+  /* Button Colors */
+  .btn-outline-primary {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+  }
+
+  .btn-outline-primary:hover {
+      background-color: #2980b9;
+  }
+
+  #add-cart {
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+  }
+
+  #add-cart:hover {
+      background-color: #e67e22;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+      .product-card {
+          width: 80%;
+          max-width: 500px;  /* Slightly smaller than full size */
+      }
+
+      .product-image {
+          height: 180px;
+      }
+
+      .product-details {
+          padding: 20px;
+      }
+
+      .card-title {
+          font-size: 20px;
+      }
+
+      .card-text {
+          font-size: 12px;
+      }
+
+      .price {
+          font-size: 100px;
+          color: #09c63e;
+      }
+
+      .btn {
+          width: 100%;
+          margin-bottom: 8px;
+      }
+  }
+
+  @media (max-width: 576px) {
+      .product-card {
+          width: 70%;
+          max-width: 400px;  /* Adjust for small screens */
+      }
+
+      .product-details {
+          padding: 15px;
+      }
+
+      .card-title {
+          font-size: 18px;
+      }
+
+      .price {
+          font-size: 14px;
+      }
+  }
+
+</style>
+
+<div class="container my-5">
+    <!-- Product Card -->
+    <div class="product-card">
+        <div class="product-details">
+            <!-- Product Details -->
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text text-muted">{{ product.description }}</p>
+            
+            {% if product.is_sale %}
+            <!-- Sale Badge and Price -->
+            <div class="sale-badge">
+                <span>Sale!</span>
+            </div>
+            <div class="price">
+                <strike class="text-muted">₦{{ product.price }}</strike>
+                <span class="sale-price">₦{{ product.sale_price }}</span>
+            </div>
+            {% else %}
+            <div class="price">₦{{ product.price }}</div>
+            {% endif %}
+            
+            <!-- Quantity Selection -->
+            <div class="row justify-content-center mb-3">
+                <div class="col-4 text-center">Quantity:</div>
+                <div class="col-6">
+                    <select class="form-select form-select-sm" id="qty-cart">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <a href="{% url 'order'%}" class="btn btn-outline-primary btn-lg">Back to Order</a>
+            <button type="button" value="{{ product.id }}" class="btn btn-warning btn-lg" id="add-cart">Add To Cart</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Add to Cart AJAX Request
+$(document).on('click', '#add-cart', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: '{% url "cart_add" %}',
+        data: {
+            product_id: $('#add-cart').val(),
+            product_qty: $('#qty-cart option:selected').text(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+        success: function(json){
+            document.getElementById("cart_quantity").textContent = json.qty;
+            location.reload();
+        },
+        error: function(xhr, errmsg, err){
+            console.log("Error:", errmsg);
+        }
+    });
+});
+</script>
+
+{% endblock %}
