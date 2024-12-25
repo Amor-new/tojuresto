@@ -1,19 +1,24 @@
-# Use the official Python image
 FROM python:3.10-slim
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy and install dependencies
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install system dependencies
+COPY requirements.txt /app/
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    python3-dev
 
-# Copy the entire project into the container
-COPY . .
+# Install Python dependencies
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Copy application files into the container
+COPY . /app/
+WORKDIR /app
 
-# Expose port 8000 (Django's default)
-EXPOSE 8000
+# Set environment variables for Python
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Start the application with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "toju_food.wsgi:application"]
