@@ -1,8 +1,11 @@
 node {
-  // 🔍 Show what's actually in the workspace
+  // ✅ Ensure code is pulled
+  checkout scm
+
+  // 🧪 Show contents of the workspace
   sh 'echo WORKSPACE CONTENT && find . -type f'
 
-  // 🔁 Then try to load the file
+  // ✅ Now load the shared pipeline
   def base = load 'jenkins/Jenkinsfile.base.groovy'
   base.pipelineTemplate(
     branch: env.BRANCH_NAME,
