@@ -1,7 +1,7 @@
-# Use official Python Alpine image
+# Use official Python slim image
 FROM python:3.14-rc-alpine3.21
 
-# Set environment variables
+# Set environment variables early
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
@@ -9,28 +9,33 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Set workdir
 WORKDIR /app
 
-# Install Alpine system dependencies
-RUN apk add --no-cache \
-    postgresql-dev \
+# Install system dependencies for Pillow and psycopg
+RUN apk update && apk add --no-cache \
     gcc \
     musl-dev \
-    libffi-dev \
-    python3-dev \
-    build-base \
-    linux-headers
+    zlib-dev \
+    jpeg-dev \
+    libjpeg \
+    libpng-dev \
+    openjpeg-dev \
+    freetype-dev \
+    lcms2-dev \
+    tiff-dev \
+    tk \
+    tcl \
+    libpq \
+    postgresql-dev
 
-# Install Python dependencies
+# Copy requirements and install Python deps
 COPY requirements.txt .
-RUN pip install --upgrade pip \
- && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy app source code
+# Copy app source
 COPY . .
 
-# Expose app port
+# Expose port
 EXPOSE 8000
 
-# Set entrypoint
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
