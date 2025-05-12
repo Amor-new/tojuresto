@@ -29,5 +29,6 @@ COPY . .
 # Expose port (optional but helps readability)
 EXPOSE 8000
 
-# Launch app
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "toju_food.wsgi:application"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
