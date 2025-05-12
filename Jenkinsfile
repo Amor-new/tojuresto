@@ -1,8 +1,6 @@
-@Library('pipeline-shared-lib') _
-
-pipelineTemplate(
-    branch: env.BRANCH_NAME,
-    imageName: "amor573/tojuresto",
-    deployTarget: "k8s"
+def base = load 'jenkins/Jenkinsfile.base.groovy'
+base.pipelineTemplate(
+  branch: env.BRANCH_NAME,
+  imageName: "amor573/tojuresto",
+  deployTarget: "k8s" 
 )
-
