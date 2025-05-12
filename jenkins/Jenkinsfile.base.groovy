@@ -1,6 +1,6 @@
 def pipelineTemplate(Map config = [:]) {
   pipeline {
-    agent any
+    agent node
 
     environment {
       IMAGE_TAG = "${env.BUILD_NUMBER}"
