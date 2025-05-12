@@ -1,34 +1,36 @@
-# Use official Python slim image
-FROM python:3.10-slim
+# Use official Python Alpine image
+FROM python:3.14-rc-alpine3.21
 
-# Set environment variables early
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
-    DEBIAN_FRONTEND=noninteractive
+    PIP_NO_CACHE_DIR=1
 
 # Set workdir
 WORKDIR /app
 
-# Install system dependencies (only what's needed)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libpq-dev \
+# Install Alpine system dependencies
+RUN apk add --no-cache \
+    postgresql-dev \
     gcc \
+    musl-dev \
+    libffi-dev \
     python3-dev \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+    build-base \
+    linux-headers
 
-# Install dependencies
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip \
  && pip install -r requirements.txt
 
-# Copy app files
+# Copy app source code
 COPY . .
 
-# Expose port (optional but helps readability)
+# Expose app port
 EXPOSE 8000
 
+# Set entrypoint
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
