@@ -78,3 +78,7 @@ def pipelineTemplate(Map config = [:]) {
   }
 }
 
+return this
+// This is a shared library function that can be used in Jenkins pipelines.
+// It defines a pipeline template that builds a Docker image, scans it with Snyk, and deploys it to either Docker Compose or Kubernetes.
+// The pipeline consists of several stages:
