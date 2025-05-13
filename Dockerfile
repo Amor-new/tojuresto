@@ -24,11 +24,10 @@ RUN apk update && apk add --no-cache \
     tiff-dev \
     tk \
     tcl \
-    libpq \
-    postgresql-dev \
+    libpq=17.5-r0 \
+    postgresql-dev=17.5-r0 \
     curl \
     bash
-
 
 
 # Copy requirements and install Python deps
