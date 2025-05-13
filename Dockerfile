@@ -11,7 +11,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Install system dependencies (Pillow, psycopg, etc.) + curl & gnupg for secure downloads
-RUN apk update && apk add --no-cache \
+# Enable edge testing repo temporarily to fetch patched libpq version
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk update && apk add --no-cache \
     gcc \
     musl-dev \
     zlib-dev \
@@ -27,7 +29,10 @@ RUN apk update && apk add --no-cache \
     libpq=17.5-r0 \
     postgresql-dev=17.5-r0 \
     curl \
-    bash
+    bash && \
+    # Remove edge repo to avoid instability
+    sed -i '$d' /etc/apk/repositories
+
 
 
 # Copy requirements and install Python deps
