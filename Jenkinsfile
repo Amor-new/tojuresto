@@ -3,6 +3,6 @@
 pipelineTemplate(
   branch: env.BRANCH_NAME,
   imageName: "amor573/tojuresto",
-  deployTarget: "k8s"  
+  deployTarget: "docker-compose"  
 )
 
