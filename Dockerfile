@@ -26,7 +26,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
     tiff-dev \
     tk \
     tcl \
-    postgresql-dev=17.5-r0 \
+    postgresql17-dev \
     curl \
     bash && \
     # Remove edge repo to avoid instability
