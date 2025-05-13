@@ -29,15 +29,7 @@ RUN apk update && apk add --no-cache \
     curl \
     bash
 
-# -------------------------------
-# Install kubectl securely
-# -------------------------------
-RUN curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" && \
-    echo "Verifying kubectl binary checksum..." && \
-    curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" && \
-    echo "$(cat kubectl.sha256)  kubectl" | sha256sum -c - && \
-    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && \
-    rm kubectl kubectl.sha256
+
 
 # Copy requirements and install Python deps
 COPY requirements.txt .
