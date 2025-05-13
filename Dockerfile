@@ -26,7 +26,6 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
     tiff-dev \
     tk \
     tcl \
-    libpq=17.5-r0 \
     postgresql-dev=17.5-r0 \
     curl \
     bash && \
