@@ -4,12 +4,13 @@ FROM python:3.14-rc-alpine3.21
 # Set environment variables early
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    KUBECTL_VERSION="v1.29.0"
 
 # Set workdir
 WORKDIR /app
 
-# Install system dependencies for Pillow and psycopg
+# Install system dependencies (Pillow, psycopg, etc.) + curl & gnupg for secure downloads
 RUN apk update && apk add --no-cache \
     gcc \
     musl-dev \
@@ -24,7 +25,19 @@ RUN apk update && apk add --no-cache \
     tk \
     tcl \
     libpq \
-    postgresql-dev
+    postgresql-dev \
+    curl \
+    bash
+
+# -------------------------------
+# Install kubectl securely
+# -------------------------------
+RUN curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" && \
+    echo "Verifying kubectl binary checksum..." && \
+    curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" && \
+    echo "$(cat kubectl.sha256)  kubectl" | sha256sum -c - && \
+    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && \
+    rm kubectl kubectl.sha256
 
 # Copy requirements and install Python deps
 COPY requirements.txt .
@@ -36,6 +49,7 @@ COPY . .
 # Expose port
 EXPOSE 8000
 
+# Entry script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

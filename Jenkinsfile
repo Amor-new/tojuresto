@@ -5,3 +5,4 @@ pipelineTemplate(
   imageName: "amor573/tojuresto",
   deployTarget: "k8s"  
 )
+
