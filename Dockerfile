@@ -1,8 +1,7 @@
 # Use official Python slim image
 FROM python:3.11-alpine3.19
 
-
-# Set environment variables early
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -11,9 +10,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Set workdir
 WORKDIR /app
 
-# Install system dependencies (Pillow, psycopg, etc.) + curl & gnupg for secure downloads
-# Enable edge testing repo temporarily to fetch patched libpq version
-RUN apk update && apk add --no-cache \
+# Upgrade base system packages & install dependencies
+RUN apk update && apk upgrade && apk add --no-cache \
     gcc \
     musl-dev \
     libffi-dev \
@@ -30,19 +28,17 @@ RUN apk update && apk add --no-cache \
     curl \
     bash
 
-
-
-# Copy requirements and install Python deps
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy app source
+# Copy source code
 COPY . .
 
-# Expose port
+# Expose port for Django/Gunicorn
 EXPOSE 8000
 
-# Entry script
+# Set entrypoint
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
