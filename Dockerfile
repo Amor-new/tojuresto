@@ -1,5 +1,6 @@
 # Use official Python slim image
-FROM python:3.14-rc-alpine3.21
+FROM python:3.11-alpine3.19
+
 
 # Set environment variables early
 ENV PYTHONDONTWRITEBYTECODE=1 \
