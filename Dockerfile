@@ -13,25 +13,22 @@ WORKDIR /app
 
 # Install system dependencies (Pillow, psycopg, etc.) + curl & gnupg for secure downloads
 # Enable edge testing repo temporarily to fetch patched libpq version
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    apk update && apk add --no-cache \
+RUN apk update && apk add --no-cache \
     gcc \
     musl-dev \
-    zlib-dev \
+    libffi-dev \
+    postgresql-dev \
     jpeg-dev \
+    zlib-dev \
     libjpeg \
     libpng-dev \
-    openjpeg-dev \
     freetype-dev \
     lcms2-dev \
     tiff-dev \
     tk \
     tcl \
-    postgresql17-dev \
     curl \
-    bash && \
-    # Remove edge repo to avoid instability
-    sed -i '$d' /etc/apk/repositories
+    bash
 
 
 
