@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Set workdir
 WORKDIR /app
 
-# Upgrade base system packages & install dependencies
+# Upgrade base system packages & install dependencies 
 RUN apk update && apk upgrade && apk add --no-cache \
     gcc \
     musl-dev \
