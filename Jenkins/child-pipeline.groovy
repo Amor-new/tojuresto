@@ -9,7 +9,7 @@ pipeline {
         stage('Load Context') {
             steps {
                 script {
-                    def contextFile = "/var/lib/jenkins/workspace/parent-pipeline-job/context_env"
+                    def contextFile = "/var/jenkins_home/workspace/parent-pipeline-job/context_env"
                     if (!fileExists(contextFile)) {
                         error "context_env not found: $contextFile"
                     }
